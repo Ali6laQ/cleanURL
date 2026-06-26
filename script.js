@@ -70,6 +70,32 @@ closeBtn.addEventListener('click', () => {
     myModal.classList.add('hidden');
 });
 
+
+const shareBtn = document.getElementById('shareBtn');
+
+shareBtn.addEventListener('click', async () => {
+    let linkToShare = document.getElementById('cleanedLink').value.trim();
+
+    if (linkToShare === "") return; 
+
+    if (navigator.share) {
+        try {
+            await navigator.share({
+                url: linkToShare
+            });
+        } catch (error) {
+            console.log("تم إلغاء المشاركة أو حدث خطأ:", error);
+        }
+    } else {
+        try {
+            await navigator.clipboard.writeText(linkToShare);
+            alert("متصفحك لا يدعم المشاركة المباشرة. تم نسخ الرابط إلى الحافظة.");
+        } catch (error) {
+            console.log("فشل النسخ", error);
+        }
+    }
+});
+
 async function insureTiktokLinkesLong(rawLink) {
     if (rawLink.includes("vt.tiktok.com") || rawLink.includes("vm.tiktok.com")) {
         try {
