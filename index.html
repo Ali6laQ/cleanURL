@@ -334,8 +334,8 @@
 
             <!-- النافذة المنبثقة -->
              <div class="fixed inset-0 bg-gray-900/60 flex items-center justify-center z-50 " dir="rtl"> <!-- gray bg  -->
-                <div class="bg-white rounded-3xl p-8 max-w-md w-full flex flex-col items-center text-center gap-4 mx-8"> <!-- white box  -->
-                    <div class="w-24 h-24 rounded-full bg-green-100 flex items-center justify-center">
+                <div class="bg-white rounded-3xl p-8 max-w-lg w-full flex flex-col items-center text-center gap-4 mx-8"> <!-- white box  -->
+                    <div class="w-24 h-24 rounded-full bg-green-100 flex items-center justify-center"> <!-- green circle  -->
                         <svg class="w-10 h-10 text-green-500" fill="currentColor" width="800px" height="800px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1743.858 267.012 710.747 1300.124 176.005 765.382 0 941.387l710.747 710.871 1209.24-1209.116z" fill-rule="evenodd"/>
                         </svg>
@@ -367,10 +367,20 @@
     </button>
 
                     </div>
-
-
-                </div>
+                    <div class="flex flex-col gap-3 mt-6 w-full">
+                    <button class="py-3  rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold flex justify-center items-center gap-3"> مشاركة الرابط
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z" />
+</svg>
+  </button>
+  <button class="w-full py-3 rounded-xl bg-white border border-gray-200 text-gray-600 font-semibold hover:bg-gray-50 transition">
+    إغلاق
+</button>
              </div>
+
+            </div>
+
+
         
     </div>
     <script src="script.js"></script>
