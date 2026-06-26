@@ -109,7 +109,7 @@
                 <input id="linkInput" type = "text" placeholder="https://www.instagram.com/example" class="w-full outline-none bg-transparent">
 
             </label>
-            <button class="w-full py-3 rounded-xl flex justify-center items-center gap-2 text-white font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:-translate-y-1 hover:shadow-lg hover:opacity-90 transition-all duration-300">نظف الرابط <svg class="w-5 h-5" width="800px" height="800px" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--noto" preserveAspectRatio="xMidYMid meet">
+            <button  id="cleanBtn" class="w-full py-3 rounded-xl flex justify-center items-center gap-2 text-white font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:-translate-y-1 hover:shadow-lg hover:opacity-90 transition-all duration-300">نظف الرابط <svg class="w-5 h-5" width="800px" height="800px" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--noto" preserveAspectRatio="xMidYMid meet">
 
 <linearGradient id="IconifyId17ecdb2904d178eab10083" gradientUnits="userSpaceOnUse" x1="50.039" y1="68.904" x2="58.797" y2="68.904" gradientTransform="rotate(45.001 55.992 74.727) scale(1 1.1165)">
 
@@ -333,7 +333,7 @@
             </div>
 
             <!-- النافذة المنبثقة -->
-             <div class="fixed inset-0 bg-gray-900/60 flex items-center justify-center z-50 " dir="rtl"> <!-- gray bg  -->
+             <div  id="myModal" class="fixed inset-0 bg-gray-900/60 flex items-center justify-center z-50 hidden" dir="rtl"> <!-- gray bg  -->
                 <div class="bg-white rounded-3xl p-8 max-w-lg w-full flex flex-col items-center text-center gap-4 mx-8"> <!-- white box  -->
                     <div class="w-24 h-24 rounded-full bg-green-100 flex items-center justify-center relative"> <!-- green circle  -->
                         <svg class="w-10 h-10 text-green-500" fill="currentColor" width="800px" height="800px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
@@ -387,6 +387,7 @@
     <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
     </svg>
                         <input
+        id ="cleanedLink"
         type="text"
         value="https://www.tiktok.com/@user/video/1234567890" 
         readonly
@@ -405,7 +406,7 @@
   <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z" />
 </svg>
   </button>
-  <button class="w-full py-3 rounded-xl bg-white border border-gray-200 text-gray-600 font-semibold hover:bg-gray-50 transition">
+  <button id="closeBtn" class="w-full py-3 rounded-xl bg-white border border-gray-200 text-gray-600 font-semibold hover:bg-gray-50 transition">
     إغلاق
 </button>
              </div>

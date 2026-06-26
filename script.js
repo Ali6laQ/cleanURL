@@ -12,3 +12,21 @@ linkInput.addEventListener('click', async () => {
         console.log("تعذر الوصول للحافظة", error);
     }
 });
+
+function cleanLink(rawLink) {
+    return rawLink.split('?')[0];
+}
+
+const myModal = document.getElementById('myModal');
+const cleanBtn = document.getElementById('cleanBtn');
+
+cleanBtn.addEventListener('click', () => {
+    let urlValue = linkInput.value.trim();
+    const isInstagramNow = urlValue.includes("instagram.com");
+    const isTikTokNow = urlValue.includes("tiktok.com");
+    const cleanedLinkPlace = document.getElementById('cleanedLink');
+    if(isInstagramNow || isTikTokNow) {
+    cleanedLinkPlace.value = cleanLink(urlValue);
+    myModal.classList.remove('hidden');
+}
+});
