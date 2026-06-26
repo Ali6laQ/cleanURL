@@ -20,15 +20,24 @@ function cleanLink(rawLink) {
 const myModal = document.getElementById('myModal');
 const cleanBtn = document.getElementById('cleanBtn');
 
-cleanBtn.addEventListener('click', () => { // عند النقر على زر "نظف الرابط"
+cleanBtn.addEventListener('click', () => {
     let urlValue = linkInput.value.trim();
     const isInstagramNow = urlValue.includes("instagram.com");
     const isTikTokNow = urlValue.includes("tiktok.com");
     const cleanedLinkPlace = document.getElementById('cleanedLink');
-    if(isInstagramNow || isTikTokNow) {
-    cleanedLinkPlace.value = cleanLink(urlValue);
-    myModal.classList.remove('hidden');
-}
+
+    if(isTikTokNow) {
+        insureTiktokLinkesLong(urlValue).then(longLink => {
+            cleanedLinkPlace.value = cleanLink(longLink);
+            myModal.classList.remove('hidden');
+        }).catch(error => {
+            console.log(error);
+        });
+    }
+    else if(isInstagramNow) {
+        cleanedLinkPlace.value = cleanLink(urlValue);
+        myModal.classList.remove('hidden');
+    }
 });
 
 const copyBtn = document.getElementById('copyBtn');
@@ -60,3 +69,18 @@ const closeBtn = document.getElementById('closeBtn');
 closeBtn.addEventListener('click', () => {
     myModal.classList.add('hidden');
 });
+
+async function insureTiktokLinkesLong(rawLink) {
+    if (rawLink.includes("vt.tiktok.com") || rawLink.includes("vm.tiktok.com")) {
+        try {
+            let response = await fetch(`https://unshorten.me/s/${rawLink}`);
+            let longLink = await response.text(); 
+            return longLink; 
+            
+        } catch (error) {
+            console.log("تعذر فك الرابط! ❌");
+            throw error;
+        }
+    }
+    return rawLink;
+}
